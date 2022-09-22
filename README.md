@@ -1,4 +1,4 @@
-# amazon-product-api
+# amazon-product-api (Scraper)
 
 Scrap product data from amazon using SpringBoot & Jsoup.
 
