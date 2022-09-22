@@ -11,4 +11,4 @@ Scrap product data from amazon using SpringBoot & Jsoup.
 
 ## Endpoints
 
-  <code>Use `code` in your Markdown file.</code>
+  - <code>`/help` - Opens swagger UI.</code>
