@@ -1,3 +1,3 @@
 # amazon-scraper
 
-Scrap product data from amazon using Jsoup.
+Scrap product data from amazon using SpringBoot & Jsoup.
