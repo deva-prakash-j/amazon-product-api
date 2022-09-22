@@ -21,25 +21,52 @@ Scrap product data from amazon using SpringBoot & Jsoup.
   - /categories
 
    ```javascript
-[{
-    position: { page: 1, position: 1, global_position: 1 },
-    asin: 'B07CSLG8ST',
-    price: {
-        discounted: false,
-        current_price: 574,
-        currency: 'USD',
-        before_price: 0,
-        savings_amount: 0,
-        savings_percent: 0
-    },
-    reviews: { total_reviews: 317, rating: 4.6 },
-    url: 'https://www.amazon.com/dp/B07CSLG8ST',
-    score: '1458.20',
-    sponsored: false,
-    amazonChoice: false,
-    bestSeller: false,
-    amazonPrime: false,
-    title: 'Newest Flagship Microsoft Xbox One S 1TB HDD Bundle with Two (2X) Wireless Controllers, 1-Month Game Pass Trial, 14-Day Xbox Live Gold Trial - White',
-    thumbnail: 'https://m.media-amazon.com/images/I/51-JAEI1jzL._AC_UY218_.jpg'
-},...]
+{
+  \"categories\": {
+    \"pets\": \"Pet Supplies\",
+    \"electronics\": \"Electronics\",
+    \"beauty\": \"Beauty\",
+    \"software\": \"Software\",
+    \"appliances\": \"Appliances\",
+    \"collectibles\": \"Collectibles\",
+    \"apparel\": \"Clothing & Accessories\",
+    \"todays-deals\": \"Deals\",
+    \"digital-text\": \"Kindle Store\",
+    \"home-improvement\": \"Tools & Home Improvement\",
+    \"lawngarden\": \"Garden & Outdoors\",
+    \"dvd\": \"Movies & TV Shows\",
+    \"mobile-apps\": \"Apps & Games\",
+    \"furniture\": \"Furniture\",
+    \"gift-cards\": \"Gift Cards\",
+    \"luggage\": \"Luggage & Bags\",
+    \"hpc\": \"Health & Personal Care\",
+    \"kitchen\": \"Home & Kitchen\",
+    \"mi\": \"Musical Instruments\",
+    \"popular\": \"Music\",
+    \"instant-video\": \"Prime Video\",
+    \"computers\": \"Computers & Accessories\",
+    \"videogames\": \"Video Games\",
+    \"jewelry\": \"Jewellery\",
+    \"watches\": \"Watches\",
+    \"speed-store\": \"Same-Day Delivery\",
+    \"toys\": \"Toys & Games\",
+    \"aps\": \"All Categories\",
+    \"office-products\": \"Office Products\",
+    \"sporting\": \"Sports, Fitness & Outdoors\",
+    \"shoes\": \"Shoes & Handbags\",
+    \"luxury-beauty\": \"Luxury Beauty\",
+    \"industrial\": \"Industrial & Scientific\",
+    \"amazon-pharmacy\": \"Amazon Pharmacy\",
+    \"baby\": \"Baby\",
+    \"grocery\": \"Grocery & Gourmet Foods\",
+    \"alexa-skills\": \"Alexa Skills\",
+    \"amazon-devices\": \"Amazon Devices\",
+    \"specialty-aps-sns\": \"Subscribe & Save\",
+    \"nowstore\": \"Amazon Fresh\",
+    \"automotive\": \"Car & Motorbike\",
+    \"stripbooks\": \"Books\",
+    \"fashion\": \"Amazon Fashion\",
+    \"under-ten-dollars\": \"Under ₹500\"
+  }
+}
 ```
