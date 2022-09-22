@@ -15,3 +15,7 @@ Scrap product data from amazon using SpringBoot & Jsoup.
   - <code><strong>/categories</strong> - Get list of categories.</code>
   - <code><strong>/products</strong> - Get list of products.</code>
   - <code><strong>/product-details</strong> - Get product details using ASIN.</code>
+
+## Response
+
+  ### /categories
