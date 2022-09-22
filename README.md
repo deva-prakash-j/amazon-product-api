@@ -8,3 +8,7 @@ Scrap product data from amazon using SpringBoot & Jsoup.
  - Extract single product by using ASIN.
  - Extract product review by using ASIN.
  - Extract ist of categories.
+
+## Endpoints
+
+  <code>Use `code` in your Markdown file.</code>
