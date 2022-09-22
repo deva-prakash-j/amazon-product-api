@@ -11,7 +11,7 @@ Scrap product data from amazon using SpringBoot & Jsoup.
 
 ## Endpoints
 
-  - <code>`<strong>/help</strong>` - Opens swagger UI.</code>
-  - <code>`<strong>/categories</strong>` - Get list of categories.</code>
-  - <code>`<strong>/products</strong>` - Get list of products.</code>
-  - <code>`<strong>/product-details</strong>` - Get product details using ASIN.</code>
+  - <code><strong>/help</strong> - Opens swagger UI.</code>
+  - <code><strong>/categories</strong> - Get list of categories.</code>
+  - <code><strong>/products</strong> - Get list of products.</code>
+  - <code><strong>/product-details</strong> - Get product details using ASIN.</code>
