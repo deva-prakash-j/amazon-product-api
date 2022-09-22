@@ -18,4 +18,14 @@ Scrap product data from amazon using SpringBoot & Jsoup.
 
 ## Response
 
-  ### /categories
+  - /categories
+
+    ```javascript
+      {
+  "categories": {
+    "pets": "Pet Supplies",
+    "electronics": "Electronics",
+    "beauty": "Beauty",
+  ...}
+}
+    ```
