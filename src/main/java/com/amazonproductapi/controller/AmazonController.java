@@ -80,6 +80,20 @@ public class AmazonController {
     return new ResponseEntity<Object>(outMap, HttpStatus.OK);
   }
 
+  @GetMapping("/review")
+  public ResponseEntity<Object> getReviews(
+      @RequestParam(value = "countryCode", defaultValue = "IN") String countryCode,
+      @RequestParam String asin, @RequestParam(defaultValue = "20") int limit) {
+    getCountryList();
+    HashMap<String, String> map = new HashMap<String, String>();
+    map.put("countryCode", countryCode);
+    map.put("type", "reviews");
+    map.put("limit", Integer.toString(limit));
+    map.put("asin", asin);
+    AmazonScraper scraper = new AmazonScraper(countriesList, map);
+    return new ResponseEntity<Object>(scraper.getReviews(limit), HttpStatus.OK);
+  }
+
   public List<Countries> getCountryList() {
     if (countriesList == null) {
       try {

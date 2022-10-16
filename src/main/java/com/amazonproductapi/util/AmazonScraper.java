@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
@@ -487,6 +488,90 @@ public class AmazonScraper {
     if (map.size() > 0) {
       productInfo.setTechSpecs(map);
     }
+  }
+
+  public RatingModel getReviews(int limit) {
+    int page = 1;
+    List<Object> reviewList = new ArrayList<Object>();
+    RatingModel ratingModel = new RatingModel();
+    HashMap<String, String> qs = new HashMap<String, String>();
+    String text;
+    Element body = createConnection(null);
+    Element temp = body.getElementsByClass("AverageCustomerReviews").first();
+    if (temp != null) {
+      temp = temp.firstElementChild().select("div").last();
+      if (temp != null) {
+        text = temp.selectFirst("span").text();
+        if (text != null && text.toLowerCase().contains("out of")) {
+          ratingModel.setReviewRating(text.split(" ")[0]);
+        }
+      }
+    }
+
+    temp = body.select("#filter-info-section").first();
+    if (temp != null) {
+      temp = temp.select("div").last();
+      if (temp != null) {
+        try {
+          text = temp.text();
+          text = text.split(", ")[1];
+          ratingModel.setTotalReview(text.split(" ")[0]);
+        } catch (Exception e) {
+        }
+      }
+    }
+
+    while (reviewList.size() < limit) {
+      qs.put("pageNumber", String.valueOf(page));
+      body = createConnection(qs);
+      temp = body.selectFirst("#cm_cr-review_list");
+      Map<String, String> review;
+      if (temp != null) {
+        if (temp.children().select(".review").isEmpty()) {
+          break;
+        }
+        for (Element div : temp.children().select(".review")) {
+          try {
+            if (div.tagName() == "div") {
+              review = new LinkedHashMap<String, String>();
+              review.put("id", div.attr("id"));
+              if (div.selectFirst(".review-rating") != null) {
+                text = div.selectFirst(".review-rating").text();
+                if (text != null && text.toLowerCase().contains("out of")) {
+                  review.put("rating", text.split(" ")[0]);
+                }
+              }
+              if (div.selectFirst(".review-title-content") != null) {
+                text = div.selectFirst(".review-title-content").text();
+                review.put("title", text);
+              }
+              if (div.selectFirst(".a-profile-name") != null) {
+                review.put("userName", div.selectFirst(".a-profile-name").text());
+              }
+              if (div.selectFirst(".review-date") != null) {
+                review.put("date", div.selectFirst(".review-date").text().split("on ")[1]);
+              }
+              if (div.selectFirst(".review-text-content") != null) {
+                review.put("review", div.selectFirst(".review-text-content").text());
+              }
+
+              reviewList.add(review);
+              if (reviewList.size() == limit) {
+                break;
+              }
+            }
+          } catch (Exception e) {
+          }
+        }
+        if (reviewList.size() == limit) {
+          break;
+        }
+      }
+      page++;
+    }
+    ratingModel.setReviewList(reviewList);
+
+    return ratingModel;
   }
 
 }
