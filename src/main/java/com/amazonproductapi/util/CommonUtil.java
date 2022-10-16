@@ -2,7 +2,14 @@ package com.amazonproductapi.util;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Enumeration;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+import javax.servlet.http.HttpServletRequest;
+import org.apache.logging.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpStatus;
@@ -14,6 +21,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Service
 public class CommonUtil {
+
+  @Autowired
+  Logger looger;
 
   public <T> List<T> jsonToJava(String fileName, Class<T> classType) throws IOException {
     List<T> list = null;
@@ -51,6 +61,36 @@ public class CommonUtil {
         + ((int) Math.floor(Math.random() * 4) + 100) + ".0."
         + ((int) Math.floor(Math.random() * 190) + 4100) + "."
         + ((int) Math.floor(Math.random() * 50) + 140) + " Safari/537.36";
+  }
+
+  public void displayReq(HttpServletRequest request, Object body) {
+    StringBuilder reqMessage = new StringBuilder();
+    Map<String, String> parameters = getParameters(request);
+
+    reqMessage.append("REQUEST ");
+    reqMessage.append("method = [").append(request.getMethod()).append("]");
+    reqMessage.append(" path = [").append(request.getRequestURI()).append("] ");
+
+    if (!parameters.isEmpty()) {
+      reqMessage.append(" parameters = [").append(parameters).append("] ");
+    }
+
+    if (!Objects.isNull(body)) {
+      reqMessage.append(" body = [").append(body).append("]");
+    }
+
+    this.looger.info("log Request: {}", reqMessage);
+  }
+
+  private Map<String, String> getParameters(HttpServletRequest request) {
+    Map<String, String> parameters = new HashMap<>();
+    Enumeration<String> params = request.getParameterNames();
+    while (params.hasMoreElements()) {
+      String paramName = params.nextElement();
+      String paramValue = request.getParameter(paramName);
+      parameters.put(paramName, paramValue);
+    }
+    return parameters;
   }
 
 }

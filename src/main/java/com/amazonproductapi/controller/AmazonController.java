@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,6 +26,9 @@ public class AmazonController {
   @Autowired
   CommonUtil util;
 
+  @Autowired
+  Logger looger;
+
   List<Countries> countriesList;
 
   @GetMapping("/countries")
@@ -43,6 +47,7 @@ public class AmazonController {
     HashMap<String, HashMap<String, String>> response =
         new HashMap<String, HashMap<String, String>>();
     response.put("categories", cat);
+    this.looger.info("test");
     return new ResponseEntity<Object>(response, HttpStatus.OK);
   }
 
