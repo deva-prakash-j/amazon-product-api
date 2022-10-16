@@ -570,6 +570,7 @@ public class AmazonScraper {
       page++;
     }
     ratingModel.setReviewList(reviewList);
+    ratingModel.setLimit(reviewList.size());
 
     return ratingModel;
   }

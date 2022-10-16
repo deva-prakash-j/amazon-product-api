@@ -80,7 +80,7 @@ public class AmazonController {
     return new ResponseEntity<Object>(outMap, HttpStatus.OK);
   }
 
-  @GetMapping("/review")
+  @GetMapping("/reviews")
   public ResponseEntity<Object> getReviews(
       @RequestParam(value = "countryCode", defaultValue = "IN") String countryCode,
       @RequestParam String asin, @RequestParam(defaultValue = "20") int limit) {
