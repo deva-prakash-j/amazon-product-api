@@ -7,7 +7,7 @@ Scrap product data from amazon using SpringBoot & Jsoup.
  - Extract products data from search result. 
  - Extract single product by using ASIN.
  - Extract product review by using ASIN.
- - Extract ist of categories.
+ - Extract list of categories.
 
 ## Endpoints
 
@@ -15,6 +15,7 @@ Scrap product data from amazon using SpringBoot & Jsoup.
   - <code><strong>/categories</strong> - Get list of categories.</code>
   - <code><strong>/products</strong> - Get list of products.</code>
   - <code><strong>/product-details</strong> - Get product details using ASIN.</code>
+  - <code><strong>/reviews</strong> - Get product details using ASIN.</code>
 
 ## Response
 
@@ -825,5 +826,34 @@ Scrap product data from amazon using SpringBoot & Jsoup.
       "Release Date": "Nov 2020"
     }
   }
+}
+```
+
+
+  - /reviews
+
+   ```javascript
+{
+  "totalReview": "2,432",
+  "reviewRating": "4.6",
+  "limit": 2,
+  "reviewList": [
+    {
+      "id": "R2BYU3Y39QIEQO",
+      "rating": "4.0",
+      "title": "An overall good premium experience",
+      "userName": "Abhishek",
+      "date": "4 May 2022",
+      "review": "SUMMERY: As a first time iPhone user, I would say one should definitely buy iPhone ONLY for premium built & premium hardware (will talk later) while the whole iOS experience is pretty overrated. iPhones isn't any exceptionally fast with normal apps like YouTube, Insta etc, Android phones are equally snappy with them in 2022. PROS: 1. Impressive hardware, the heptics, the autobrightness & otherwise highly ignored things in Android are way too perfectly executed in iPhone and it DOES make a big difference in user experience!! 2. The screen is AMAZING.. it doesn't have 90 or 120 hz refresh rate but it FEELS better than my Nord with 90 hz!! 3. A14 bionic promises years of performance ahead. 4. Battery life is somewhere in between good & great. 5. 6. The dimensions of phone, it's smaller than usual android phones and feels much more handy along with less weight. 7. Overall build quality is great. 8. Best audio output out there. 9. Long term support. CONS: 1. SLOW CHARGING. 20 W only, you'll be jealous of 1/3rd price phones with 60 W charging. Yes that much high charging will effect health of battery but 20 W is way way too less, if Apple is such a legendary company they should have created a battery that can withstand decently fast charging while instead they just use slow charging to keep their battery's health. 2. Overy exhagerated software experience, reality is that Android is more user friendly with better gesture & commonsense options & settings & steps to do simple things. iOS looks pretty yes but UX engineers at Apple have really done a crappy job.. there's still no notification grouping in correct manner (its executed poorly), no proper homescreen customisation & just so so so many \"commonsense\" things are missing from iOS I can rant all day about it. Everything you can do in Android with a single click or swipe takes 2 swipes and then a click to do in iOS its SOOOOO ANNOYING. Like you want to clear a notification? Swipe and then click on clear. You want to open a notification? Swipe FIRST and then click open.. like wth???????? 3. DON'T believe Apple fanboys who scream about speed, Android phones are equally snappy in performance today. There are split second app loading times in iOS also, just like in Android. And yeah iOS DOES HAVE occasional bugs too, apps taking too much time sometimes etc etc. 4. FaceID is nice but an in-fingerprint reader seems the best ID to me atleast, that's missing. 5. Ridiculously expensive accessories 6. Battery life is above good but not great. In the end I would say iPhone, overall, does provide a better experience (mostly cuz of hardware only) but it's expensive. Do know that you're NOT buying a value-for-money phone at all, so buy it only if you can afford it without much difficulty."
+    },
+    {
+      "id": "R2QIKD9JK6PUU3",
+      "rating": "4.0",
+      "title": "Pros and cons",
+      "userName": "Mohit",
+      "date": "8 October 2022",
+      "review": "i purchased this mobile in 2022. If you are looking for gaming i phone then go for pro version of i phone 13 and 14 because there are frame drops issue and battery drain is fast like my poco f1 but still you can play bgmi nicely under fast network speed and low room temperature . BTW cemra and display quality is awesome specially video quality is amazing. Battery performance is not so good, overall performance and smoothness Is OP"
+    }
+  ]
 }
 ```
